@@ -1,3 +1,14 @@
+@keyframes textLoadBold{
+  from {
+    color:rgb(255,255,255);
+    font-weight:bolder;
+  }
+  to {
+    color:rgb(0,0,0);
+    font-weight:bold;
+  }
+}
+
 body {
   margin-top:2.5%;
   margin-bottom:2.5%;
@@ -6,4 +17,9 @@ body {
   background-color:rgb(25,100,255);
   font-family:"Courier",monospace;
   text-align:center;
+}
+
+h1 {
+  animation-name:textLoadBold;
+  animation-duration:1s;
 }
