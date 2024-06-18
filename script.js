@@ -1,7 +1,7 @@
 var character;
 
 function startGame(){
-  character = new component(100,100,20,20,"rgb(124,120,102,1)","black",2,false);
+  character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
 }
