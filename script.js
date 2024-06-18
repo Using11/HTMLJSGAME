@@ -39,10 +39,10 @@ class component {
     this.radiusBool = radiusBool;
     this.update = function(){
       if (radiusBool){
-        arcConstructor();
+        this.arcConstructor();
       }
       else {
-        rectConstructor();
+        this.rectConstructor();
       }
     }
   }
