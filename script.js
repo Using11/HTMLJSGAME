@@ -1,8 +1,12 @@
 var character;
 var gravityStrength = 0.09;
 var gravitySpeed = 0;
+var startTime;
+var currTime;
+var elapsedTime;
 
 function startGame(){
+  startTime = new Date().getTime();
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
@@ -57,6 +61,7 @@ class component {
       else {
         gravitySpeed **= 2;
       }
+      Math.round(this.y);
       gravitySpeed++;
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height - this.height;
@@ -110,7 +115,12 @@ class component {
 }
 
 function paint(){
-  setTimeout(requestAnimationFrame(updateGame),1000/30);
+  currTime = new Date().getTime();
+  elapsedTime = currTime - startTime;
+  if(elapsedTime > (1000/30)){
+    startTime = currTime - (elapsedTime % (1000/30));
+    requestAnimationFrame(updateGame);
+  }
 }
 
 gameCanvas.canvas.addEventListener("click", startGame());
