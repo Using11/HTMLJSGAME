@@ -13,13 +13,13 @@ function updateGame(){
 
 var gameCanvas = {
   canvas : document.getElementById("gameLoc"),
-  Gcontext : this.canvas.getcontext("2d"),
   start : function(){
+    this.Gcontext : this.canvas.getcontext("2d"),
     this.animation = setTimeout(requestAnimationFrame(updateGame),1000/30);
     updateGame();
   },
   clear : function(){
-    Gcontext.clearRect(0,0,canvas.width,canvas.height);
+    this.Gcontext.clearRect(0,0,canvas.width,canvas.height);
   }
 };
 
@@ -30,22 +30,28 @@ class component {
     this.width = width;
     this.height = height;
     this.fillColor = fillColor;
-    gameCanvas.Gcontext.fillStyle = this.fillColor;
+    var context = gameCanvas.Gcontext();
+    context.fillStyle = this.fillColor;
     this.strokeColor = strokeColor;
-    gameCanvas.Gcontext.strokeStyle = this.strokeColor;
+    context.strokeStyle = this.strokeColor;
     this.strokeWidth = strokeWidth;
-    gameCanvas.gContext.lineWidth = this.strokeWidth;
+    Context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.rectConstructor = function(){
-      gameCanvas.Gcontext.fillRect(this.x,this.y,this.width,this.height);
-      if (fillColor != false){
-        gameCanvas.Gcontext.strokeRect(this.x,this.y,this.width,this.height);
+      context.fillRect(this.x,this.y,this.width,this.height);
+      if (strokeColor != false){
+        context.strokeRect(this.x,this.y,this.width,this.height);
       }
     }
     this.arcConstructor = function(){
-      gameCanvas.Gcontext.beginPath();
-      gameCanvas.Gcontext.arc(x,y,width,height,360);
-      gameCanvas.Gcontext.closePath();
+      context.beginPath();
+      context.arc(x,y,width,height,360);
+      context.fill();
+      if (strokeColor != false){
+        context.arc(x,y,width,height,360);
+        context.stroke();
+      }
+      context.closePath();
     }
     this.update = function(){
       if (radiusBool){
