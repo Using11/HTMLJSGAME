@@ -1,22 +1,31 @@
 var character;
+var gravityStrength = 1;
 
 function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
+  updateGame();
 }
 
 function updateGame(){
   gameCanvas.clear();
   character.update();
+  paint();
 }
 
 var gameCanvas = {
   canvas : document.getElementById("gameLoc"),
   start : function(){
     this.Gcontext = this.canvas.getContext("2d"),
-    this.animation = setTimeout(requestAnimationFrame(updateGame),1000/30);
+    this.animation = paint();
     updateGame();
+    window.addEventListener("keydown", function(event){
+      gameCanvas.key = event.key;
+    });
+    window.addEventListener("keyup", function(event){
+      gameCanvas.key = false;
+    })
   },
   clear : function(){
     this.Gcontext.clearRect(0,0,this.canvas.width,this.canvas.height);
@@ -54,6 +63,21 @@ class component {
           this.rectConstructor(false);
         }
       }
+      gravity(gravityStrength);
+    }
+    this.gravity = function(){
+      var gravitySpeed = 0;
+      this.y += gravityStrength + gravitySpeed - 1
+      if (gravitySpeed == 0){
+        gravitySpeed++;
+      }
+      else {
+        gravitySpeed **= 2;
+      }
+      gravitySpeed++;
+      if(this.y - this.height >= gameCanvas.canvas.height){
+        this.y = gameCanvas.canvas.height + this.height;
+      }
     }
   }
   rectConstructor = function(stroke){
@@ -80,6 +104,10 @@ class component {
     }
     context.closePath();
   }
+}
+
+function paint(){
+  setTimeout(requestAnimationFrame(updateGame),1000/30);
 }
 
 gameCanvas.canvas.addEventListener("click", startGame());
