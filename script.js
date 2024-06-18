@@ -14,7 +14,7 @@ function updateGame(){
 var gameCanvas = {
   canvas : document.getElementById("gameLoc"),
   start : function(){
-    this.Gcontext = this.canvas.getcontext("2d"),
+    this.Gcontext = this.canvas.getContext("2d"),
     this.animation = setTimeout(requestAnimationFrame(updateGame),1000/30);
     updateGame();
   },
