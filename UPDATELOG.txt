@@ -1,9 +1,10 @@
 Start of development: 6/17/2024
-Current Version: 0.0.1-alpha
-Version's release: 6/17/2024
+Current Version: 0.1.0-alpha
+Version's release: 6/18/2024
 
-Updates in current version: Fixing css and html
+Updates in current version: Added css and html, game development starts
 
 Update log:
 0.0.0-alpha: Creation and start of HTMLJSGAME development
 0.0.1-alpha: Fixing css and html
+0.1.0-alpha: Added css and html, game development starts
