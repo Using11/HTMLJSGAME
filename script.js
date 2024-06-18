@@ -1,12 +1,8 @@
 var character;
 var gravityStrength = 0.09;
 var gravitySpeed = 0;
-var startTime;
-var currTime;
-var elapsedTime;
 
 function startGame(){
-  startTime = new Date().getTime();
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
@@ -115,12 +111,7 @@ class component {
 }
 
 function paint(){
-  requestAnimationFrame(updateGame);
-  currTime = new Date().getTime();
-  elapsedTime = currTime - startTime;
-  if(elapsedTime > (1000/40)){
-    startTime = currTime - (elapsedTime % (1000/40));
-    requestAnimationFrame(updateGame);
+  setTimeout(requestAnimationFrame(updateGame),200);
   }
 }
 
