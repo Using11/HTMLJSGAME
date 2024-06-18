@@ -19,7 +19,7 @@ var gameCanvas = {
     updateGame();
   },
   clear : function(){
-    this.Gcontext.clearRect(0,0,canvas.width,canvas.height);
+    this.Gcontext.clearRect(0,0,this.canvas.width,this.canvas.height);
   }
 };
 
