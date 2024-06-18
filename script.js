@@ -77,7 +77,7 @@ class component {
           this.rectConstructor(false);
         }
       }
-      gravity(gravityStrength);
+      this.gravity(gravityStrength);
     }
   }
   rectConstructor = function(stroke){
