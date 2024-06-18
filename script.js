@@ -37,22 +37,6 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
-    rectConstructor = function(){
-      context.fillRect(this.x,this.y,this.width,this.height);
-      if (strokeColor != false){
-        context.strokeRect(this.x,this.y,this.width,this.height);
-      }
-    }
-    this.arcConstructor = function(){
-      context.beginPath();
-      context.arc(x,y,width,height,360);
-      context.fill();
-      if (strokeColor != false){
-        context.arc(x,y,width,height,360);
-        context.stroke();
-      }
-      context.closePath();
-    }
     this.update = function(){
       if (radiusBool){
         arcConstructor();
@@ -61,6 +45,22 @@ class component {
         rectConstructor();
       }
     }
+  }
+  rectConstructor = function(){
+    context.fillRect(this.x,this.y,this.width,this.height);
+    if (strokeColor != false){
+      context.strokeRect(this.x,this.y,this.width,this.height);
+    }
+  }
+  arcConstructor = function(){
+    context.beginPath();
+    context.arc(x,y,width,height,360);
+    context.fill();
+    if (strokeColor != false){
+      context.arc(x,y,width,height,360);
+      context.stroke();
+    }
+    context.closePath();
   }
 }
 
