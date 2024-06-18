@@ -58,8 +58,8 @@ class component {
         gravitySpeed **= 2;
       }
       gravitySpeed++;
-      if(this.y - this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height + this.height;
+      if(this.y + this.height >= gameCanvas.canvas.height){
+        this.y = gameCanvas.canvas.height - this.height;
         gravitySpeed = 0;
       }
     }
