@@ -46,6 +46,20 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
+    this.gravity = function(){
+      var gravitySpeed = 0;
+      this.y += gravityStrength + gravitySpeed - 1
+      if (gravitySpeed == 0){
+        gravitySpeed++;
+      }
+      else {
+        gravitySpeed **= 2;
+      }
+      gravitySpeed++;
+      if(this.y - this.height >= gameCanvas.canvas.height){
+        this.y = gameCanvas.canvas.height + this.height;
+      }
+    }
     this.update = function(){
       if (radiusBool){
         if (strokeColor){
@@ -64,20 +78,6 @@ class component {
         }
       }
       gravity(gravityStrength);
-    }
-    this.gravity = function(){
-      var gravitySpeed = 0;
-      this.y += gravityStrength + gravitySpeed - 1
-      if (gravitySpeed == 0){
-        gravitySpeed++;
-      }
-      else {
-        gravitySpeed **= 2;
-      }
-      gravitySpeed++;
-      if(this.y - this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height + this.height;
-      }
     }
   }
   rectConstructor = function(stroke){
