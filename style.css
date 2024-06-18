@@ -19,6 +19,11 @@ body {
   text-align:center;
 }
 
+canvas {
+  background-color:white;
+  border:1px solid black;
+}
+
 h1 {
   animation-name:textLoadBold;
   animation-duration:1s;
