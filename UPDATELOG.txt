@@ -1,11 +1,12 @@
 Start of development: 6/17/2024
-Current Version: 0.2.0-alpha
+Current Version: 0.2.1-alpha
 Version's release: 6/18/2024
 
-Updates in current version: Progress on canvas in creating components
+Updates in current version: Fixed gravity
 
 Update log:
 0.0.0-alpha: Creation and start of HTMLJSGAME development
 0.0.1-alpha: Fixing css and html
 0.1.0-alpha: Added css and html, game development starts
 0.2.0-alpha: Progress on canvas in creating components
+0.2.1-alpha: Fixed gravity
