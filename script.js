@@ -115,6 +115,7 @@ class component {
 }
 
 function paint(){
+  requestAnimationFrame(updateGame);
   currTime = new Date().getTime();
   elapsedTime = currTime - startTime;
   if(elapsedTime > (1000/30)){
