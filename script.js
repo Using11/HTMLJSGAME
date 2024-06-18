@@ -50,6 +50,7 @@ class component {
     this.gravity = function(){
       this.y += gravityStrength + gravitySpeed - 1
       gravitySpeed++;
+      gravitySpeed = Math.round(gravitySpeed * 0.9);
       Math.round(this.y);
       if(this.y + this.height >= gameCanvas.canvas.height){
         gravitySpeed = 0;
@@ -105,7 +106,7 @@ class component {
 function paint(){
   setTimeout(() => {
     requestAnimationFrame(updateGame);
-  }, 1000 / 200);
+  }, 1000 / 30);
 }
 
 gameCanvas.canvas.addEventListener("click", startGame());
