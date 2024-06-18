@@ -49,9 +49,7 @@ class component {
   rectConstructor = function(){
     var context = gameCanvas.canvas.getContext("2d");
     context.fillStyle = this.fillColor;
-    this.strokeColor = strokeColor;
     context.strokeStyle = this.strokeColor;
-    this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     context.fillRect(this.x,this.y,this.width,this.height);
     if (strokeColor != false){
@@ -61,9 +59,7 @@ class component {
   arcConstructor = function(){
     var context = gameCanvas.canvas.getContext("2d");
     context.fillStyle = this.fillColor;
-    this.strokeColor = strokeColor;
     context.strokeStyle = this.strokeColor;
-    this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     context.beginPath();
     context.arc(x,y,width,height,360);
