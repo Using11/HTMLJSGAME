@@ -118,8 +118,8 @@ function paint(){
   requestAnimationFrame(updateGame);
   currTime = new Date().getTime();
   elapsedTime = currTime - startTime;
-  if(elapsedTime > (1000/30)){
-    startTime = currTime - (elapsedTime % (1000/30));
+  if(elapsedTime > (1000/40)){
+    startTime = currTime - (elapsedTime % (1000/40));
     requestAnimationFrame(updateGame);
   }
 }
