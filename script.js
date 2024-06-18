@@ -1,5 +1,5 @@
 var character;
-var gravityStrength = 1;
+var gravityStrength = 0.09;
 var gravitySpeed = 0;
 
 function startGame(){
