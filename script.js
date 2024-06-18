@@ -6,14 +6,14 @@ function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
-  character.gravity();
+  //character.gravity();
   updateGame();
 }
 
 function updateGame(){
   gameCanvas.clear();
   character.update();
-  character.gravity();
+  //character.gravity();
   paint();
 }
 
@@ -111,12 +111,9 @@ class component {
 }
 
 function paint(){
-  
   setTimeout(() => {
     requestAnimationFrame(updateGame);
   }, 1000 / 200);
-
-  //setTimeout(requestAnimationFrame(updateGame),200);
 }
 
 gameCanvas.canvas.addEventListener("click", startGame());
