@@ -1,5 +1,5 @@
 Start of development: 6/17/2024
-Current Version: Pre-Alpha 0.0.0
+Current Version: 0.0.0-alpha
 Version's release: 6/17/2024
 
 Updates in current version: Creation and start of HTMLJSGAME development
