@@ -30,7 +30,7 @@ class component {
     this.width = width;
     this.height = height;
     this.fillColor = fillColor;
-    var context = gameCanvas.Gcontext();
+    var context = gameCanvas.canvas.getContext("2d");
     context.fillStyle = this.fillColor;
     this.strokeColor = strokeColor;
     context.strokeStyle = this.strokeColor;
