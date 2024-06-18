@@ -35,7 +35,7 @@ class component {
     this.strokeColor = strokeColor;
     context.strokeStyle = this.strokeColor;
     this.strokeWidth = strokeWidth;
-    Context.lineWidth = this.strokeWidth;
+    context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.rectConstructor = function(){
       context.fillRect(this.x,this.y,this.width,this.height);
