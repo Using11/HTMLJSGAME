@@ -6,14 +6,12 @@ function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
-  //character.gravity();
   updateGame();
 }
 
 function updateGame(){
   gameCanvas.clear();
   character.update();
-  //character.gravity();
   paint();
 }
 
@@ -51,17 +49,12 @@ class component {
     this.radiusBool = radiusBool;
     this.gravity = function(){
       this.y += gravityStrength + gravitySpeed - 1
-      if (gravitySpeed == 0){
-        gravitySpeed++;
-      }
-      else {
-        gravitySpeed **= 2;
-      }
+      gravitySpeed++;
       Math.round(this.y);
       gravitySpeed++;
       if(this.y + this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height - this.height;
         gravitySpeed = 0;
+        this.y = gameCanvas.canvas.height - this.height;
       }
     }
     this.update = function(){
