@@ -47,11 +47,16 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
+    this.touchingGroundOrSurface(){
+      
+    }
     this.gravity = function(){
-      this.y += gravityStrength + gravitySpeed - 1
-      gravitySpeed++;
-      gravitySpeed = Math.round(gravitySpeed * 0.96);
-      Math.round(this.y);
+      if(this.y + this.height >= gameCanvas.canvas.height){
+        this.y += gravityStrength + gravitySpeed - 1
+        gravitySpeed++;
+        gravitySpeed = Math.round(gravitySpeed * 0.96);
+        Math.round(this.y);
+      }
       if(this.y + this.height >= gameCanvas.canvas.height){
         gravitySpeed = 0;
         this.y = gameCanvas.canvas.height - this.height;
