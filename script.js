@@ -1,5 +1,6 @@
 var character;
 var gravityStrength = 1;
+var gravitySpeed = 0;
 
 function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
@@ -49,7 +50,6 @@ class component {
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.gravity = function(){
-      var gravitySpeed = 0;
       this.y += gravityStrength + gravitySpeed - 1
       if (gravitySpeed == 0){
         gravitySpeed++;
@@ -60,6 +60,7 @@ class component {
       gravitySpeed++;
       if(this.y - this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height + this.height;
+        gravitySpeed = 0;
       }
     }
     this.update = function(){
