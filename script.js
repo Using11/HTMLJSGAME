@@ -3,10 +3,12 @@ var character;
 function startGame(){
   character = new component(100,100,20,20,"rgb(124,120,102)","black",2,false);
   gameCanvas.start();
+  character.update();
 }
 
 function updateGame(){
-  
+  gameCanvas.clear();
+  character.update();
 }
 
 var gameCanvas = {
