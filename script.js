@@ -39,20 +39,30 @@ class component {
     this.radiusBool = radiusBool;
     this.update = function(){
       if (radiusBool){
-        this.arcConstructor();
+        if (strokeColor){
+          this.arcConstructor(true);
+        }
+        else{
+          this.arcConstructor(false);
+        }
       }
       else {
-        this.rectConstructor();
+        if (strokeColor){
+          this.rectConstructor(true);
+        }
+        else{
+          this.rectConstructor(false);
+        }
       }
     }
   }
-  rectConstructor = function(){
+  rectConstructor = function(stroke){
     var context = gameCanvas.canvas.getContext("2d");
     context.fillStyle = this.fillColor;
     context.strokeStyle = this.strokeColor;
     context.lineWidth = this.strokeWidth;
     context.fillRect(this.x,this.y,this.width,this.height);
-    if (strokeColor != false){
+    if (stroke != false){
       context.strokeRect(this.x,this.y,this.width,this.height);
     }
   }
@@ -64,7 +74,7 @@ class component {
     context.beginPath();
     context.arc(x,y,width,height,360);
     context.fill();
-    if (strokeColor != false){
+    if (stroke != false){
       context.arc(x,y,width,height,360);
       context.stroke();
     }
