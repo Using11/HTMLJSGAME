@@ -111,7 +111,12 @@ class component {
 }
 
 function paint(){
-  setTimeout(requestAnimationFrame(updateGame),200);
+  
+  setTimeout(() => {
+    requestAnimationFrame(updateGame);
+  }, 1000 / 200);
+
+  //setTimeout(requestAnimationFrame(updateGame),200);
 }
 
 gameCanvas.canvas.addEventListener("click", startGame());
