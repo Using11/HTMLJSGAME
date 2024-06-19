@@ -65,11 +65,11 @@ class component {
       this.x += xMove;
     }
     this.slowDown = function(){
-      if(xMove > 0){
-        xMove--;
+      if(this.xMove > 0){
+        this.xMove--;
       }
-      else if(xMove < 0){
-        xMove++;
+      else if(this.xMove < 0){
+        this.xMove++;
       }
     }
     this.jump = function(){
