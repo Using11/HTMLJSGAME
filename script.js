@@ -57,7 +57,7 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
-    var xMove;
+    var xMove = 0;
     this.xMove = xMove;
     this.touchingGroundOrSurface = function(){
       
