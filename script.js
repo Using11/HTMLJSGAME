@@ -80,9 +80,9 @@ class component {
     }
     this.gravity = function(){
       this.y += gravityStrength + gravitySpeed - 1
+      this.y = Math.round(this.y);
       gravitySpeed++;
       gravitySpeed = Math.round(gravitySpeed * 0.96);
-      this.y = Math.round(this.y);
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height - this.height;
         gravitySpeed = 0; 
