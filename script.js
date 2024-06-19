@@ -62,7 +62,7 @@ class component {
       
     }
     this.move = function(){
-      this.x += xMove;
+      this.x += this.xMove;
     }
     this.slowDown = function(){
       if(this.xMove > 0){
