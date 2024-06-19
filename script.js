@@ -11,6 +11,16 @@ function startGame(){
 
 function updateGame(){
   gameCanvas.clear();
+  if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
+    character.xMove--;
+  }
+  if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
+    character.xMove++;
+  }
+  if(!gameCanvas.key || (gameCanvas.key != "ArrowLeft" || gameCanvas.key != "ArrowRight")){
+    character.slowDown();
+  }
+  character.move();
   character.update();
   paint();
 }
@@ -47,8 +57,23 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
+    this.xMove = xMove;
     this.touchingGroundOrSurface = function(){
       
+    }
+    this.move = function(){
+      this.x += xMove;
+    }
+    this.slowDown = function(){
+      if(xMove > 0){
+        xMove--;
+      }
+      else if(xMove < 0){
+        xMove++;
+      }
+    }
+    this.jump = function(){
+      gravitySpeed = -20;
     }
     this.gravity = function(){
       if(this.y + this.height <= gameCanvas.canvas.height){
