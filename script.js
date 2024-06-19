@@ -11,13 +11,15 @@ function startGame(){
 
 function updateGame(){
   gameCanvas.clear();
-  if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
-    character.xMove -= 1;
+  if (gameCanvas.key && (gameCanvas.key == "ArrowLeft" || gameCanvas.key == "ArrowRight"){
+    if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
+      character.xMove -= 1;
+    }
+    if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
+      character.xMove += 1;
+    }
   }
-  if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
-    character.xMove += 1;
-  }
-  if(!gameCanvas.key || (gameCanvas.key != "ArrowLeft" || gameCanvas.key != "ArrowRight")){
+  else{
     character.slowDown();
   }
   character.move();
