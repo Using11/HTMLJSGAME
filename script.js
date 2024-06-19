@@ -95,7 +95,6 @@ class component {
       }
     }
     this.update = function(){
-      this.gravity(gravityStrength);
       if (radiusBool){
         if (strokeColor){
           this.arcConstructor(true);
@@ -112,6 +111,7 @@ class component {
           this.rectConstructor(false);
         }
       }
+      this.gravity(gravityStrength);
     }
   }
   rectConstructor = function(stroke){
