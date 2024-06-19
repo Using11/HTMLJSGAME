@@ -13,15 +13,15 @@ function updateGame(){
   gameCanvas.clear();
   if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
     console.log("left");
-    character.xMove--;
+    character.xMove -= 1;
   }
   if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
     console.log("right");
-    character.xMove++;
+    character.xMove += 1;
   }
   if(!gameCanvas.key || (gameCanvas.key != "ArrowLeft" || gameCanvas.key != "ArrowRight")){
     console.log("something's not right");
-    character.slowDown();
+    //character.slowDown();
   }
   character.move();
   character.update();
@@ -69,10 +69,10 @@ class component {
     }
     this.slowDown = function(){
       if(this.xMove > 0){
-        this.xMove--;
+        this.xMove -= 1;
       }
       else if(this.xMove < 0){
-        this.xMove++;
+        this.xMove += 1;
       }
     }
     this.jump = function(){
