@@ -12,16 +12,13 @@ function startGame(){
 function updateGame(){
   gameCanvas.clear();
   if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
-    console.log("left");
     character.xMove -= 1;
   }
   if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
-    console.log("right");
     character.xMove += 1;
   }
   if(!gameCanvas.key || (gameCanvas.key != "ArrowLeft" || gameCanvas.key != "ArrowRight")){
-    console.log("something's not right");
-    //character.slowDown();
+    character.slowDown();
   }
   character.move();
   character.update();
