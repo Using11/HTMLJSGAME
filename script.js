@@ -12,7 +12,7 @@ function startGame(){
 function updateGame(){
   gameCanvas.clear();
   if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
-    console.log("left);
+    console.log("left");
     character.xMove--;
   }
   if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
