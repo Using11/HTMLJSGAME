@@ -78,7 +78,9 @@ class component {
       }
     }
     this.jump = function(){
-      gravitySpeed = -20;
+      if (gravitySpeed >= 0){
+        gravitySpeed = -20;
+      }
     }
     this.gravity = function(){
       this.y += gravityStrength + gravitySpeed - 1
