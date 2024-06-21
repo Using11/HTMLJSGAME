@@ -63,6 +63,7 @@ class component {
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.xMove = 0;
+    this.touchingSurface = false;
     this.touchingGroundOrSurface = function(){
       
     }
@@ -78,7 +79,7 @@ class component {
       }
     }
     this.jump = function(){
-      if (gravitySpeed >= 0){
+      if (gravitySpeed >= 0 && this.touchingSurface){
         gravitySpeed = -20;
       }
     }
@@ -88,8 +89,12 @@ class component {
       gravitySpeed++;
       gravitySpeed = Math.round(gravitySpeed * 0.96);
       if(this.y + this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height - this.height;
+        this.y = gameCanvas.canvas.height - this.height;]
+        this.touchingSurface == true;
         gravitySpeed = 0; 
+      }
+      else {
+        this.touchingSurface == false;
       }
     }
     this.update = function(){
