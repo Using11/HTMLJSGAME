@@ -90,11 +90,11 @@ class component {
       gravitySpeed = Math.round(gravitySpeed * 0.96);
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height - this.height;
-        this.touchingSurface == true;
+        this.touchingSurface = true;
         gravitySpeed = 0; 
       }
       else {
-        this.touchingSurface == false;
+        this.touchingSurface = false;
       }
     }
     this.update = function(){
