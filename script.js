@@ -27,6 +27,7 @@ function updateGame(){
   }
   character.move();
   character.update();
+  character.gravity(gravityStrength);
   paint();
 }
 
@@ -114,7 +115,6 @@ class component {
           this.rectConstructor(false);
         }
       }
-      this.gravity(gravityStrength);
     }
   }
   rectConstructor = function(stroke){
