@@ -11,7 +11,7 @@ function startGame(){
 
 function updateGame(){
   gameCanvas.clear();
-  if (gameCanvas.key && (gameCanvas.key == "ArrowLeft" || gameCanvas.key == "ArrowRight" || gameCanvas.key == "ArrowUp"){
+  if (gameCanvas.key && (gameCanvas.key == "ArrowLeft" || gameCanvas.key == "ArrowRight" || gameCanvas.key == "ArrowUp")){
     if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
       character.xMove -= 1;
     }
