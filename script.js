@@ -89,7 +89,7 @@ class component {
       gravitySpeed++;
       gravitySpeed = Math.round(gravitySpeed * 0.96);
       if(this.y + this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height - this.height;]
+        this.y = gameCanvas.canvas.height - this.height;
         this.touchingSurface == true;
         gravitySpeed = 0; 
       }
