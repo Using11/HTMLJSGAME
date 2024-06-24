@@ -45,6 +45,7 @@ function updateGame(){
   //object4.update();
   //object5.update();
   //object6.update();
+  character.collideWithObjectSide(object1);
   character.gravity(gravityStrength);
   paint();
 }
