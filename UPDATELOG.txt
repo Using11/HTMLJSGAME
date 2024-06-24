@@ -2,7 +2,7 @@ Start of development: 6/17/2024
 Current Version: 0.4.0-alpha
 Version's release: 6/24/2024
 
-Updates in current version: Added objects and coins in the world
+Updates in current version: Added objects and coins in the world, collision detection, minor changes to movement
 
 Update log:
 0.0.0-alpha: Creation and start of HTMLJSGAME development
@@ -12,4 +12,4 @@ Update log:
 0.2.1-alpha: Fixed gravity
 0.3.0-alpha: Added jumping
 0.3.1-alpha: Reworked jumping and gravity
-0.4.0-alpha: Added objects and coins in the world
+0.4.0-alpha: Added objects and coins in the world, collision detection, minor changes to movement
