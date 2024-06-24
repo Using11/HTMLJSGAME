@@ -4,8 +4,20 @@ var gravitySpeed = 0;
 
 function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
+  object1 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  //object2 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  //object3 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  //object4 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  //object5 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  //object6 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
   gameCanvas.start();
   character.update();
+  object1.update();
+  //object2.update();
+  //object3.update();
+  //object4.update();
+  //object5.update();
+  //object6.update();
   updateGame();
 }
 
@@ -27,6 +39,12 @@ function updateGame(){
   }
   character.move();
   character.update();
+  object1.update();
+  //object2.update();
+  //object3.update();
+  //object4.update();
+  //object5.update();
+  //object6.update();
   character.gravity(gravityStrength);
   paint();
 }
@@ -90,6 +108,11 @@ class component {
     this.touchingSurface = false;
     this.touchingGroundOrSurface = function(){
       
+    }
+    this.collideWithObjectSide = function(obj){
+      if(this.x == obj.x && this.y == obj.y){
+        console.log("throw");
+      }
     }
     this.move = function(){
       if (Math.abs(this.xMove) >= 25){
