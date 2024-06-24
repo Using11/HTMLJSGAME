@@ -4,7 +4,7 @@ var gravitySpeed = 0;
 
 function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false,false);
-  object1 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  object1 = new component(150,350,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   //object2 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   //object3 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   //object4 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
@@ -117,7 +117,7 @@ class component {
       }
     }
     this.move = function(){
-      if (Math.abs(this.xMove) >= 25){
+      if (Math.abs(this.xMove) >= 15){
         this.slowDown();
       }
       this.x += this.xMove;
