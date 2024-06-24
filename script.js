@@ -92,6 +92,9 @@ class component {
       
     }
     this.move = function(){
+      if (Math.abs(this.xMove) >= 25){
+        this.slowDown();
+      }
       this.x += this.xMove;
     }
     this.slowDown = function(){
