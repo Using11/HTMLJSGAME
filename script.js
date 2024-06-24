@@ -11,16 +11,19 @@ function startGame(){
 
 function updateGame(){
   gameCanvas.clear();
-  if (gameCanvas.key && (gameCanvas.key == "ArrowLeft" || gameCanvas.key == "ArrowRight" || gameCanvas.key == "ArrowUp")){
-    if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
+  if (keys.left || keys.right || keys.up){
+    if (keys.left){
       character.xMove -= 1;
     }
-    if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
+    if (keys.right){
       character.xMove += 1;
     }
-    if (gameCanvas.key && gameCanvas.key == "ArrowUp"){
+    if (keys.up){
       character.jump();
     }
+  }
+  if (!keys.left && !keys.right){
+    character.slowDown();
   }
   character.move();
   character.update();
@@ -36,14 +39,37 @@ var gameCanvas = {
     updateGame();
     window.addEventListener("keydown", function(event){
       gameCanvas.key = event.key;
+      if (gameCanvas.key === "ArrowLeft"){
+        keys.left = true;
+      }
+      if (gameCanvas.key === "ArrowRight"){
+        keys.right = true;
+      }
+      if (gameCanvas.key === "ArrowUp"){
+        keys.up = true;
+      }
     });
     window.addEventListener("keyup", function(event){
-      gameCanvas.key = false;
-    })
+      gameCanvas.key = event.key;
+      if (gameCanvas.key === "ArrowLeft"){
+        keys.left = false;
+      }
+      if (gameCanvas.key === "ArrowRight"){
+        keys.right = false;
+      }
+      if (gameCanvas.key === "ArrowUp"){
+        keys.up = false;
+      }})
   },
   clear : function(){
     this.Gcontext.clearRect(0,0,this.canvas.width,this.canvas.height);
   }
+};
+
+var keys = {
+  left : false,
+  right : false,
+  up : false
 };
 
 class component {
