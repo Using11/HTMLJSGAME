@@ -117,7 +117,7 @@ class component {
       }
     }
     this.move = function(){
-      if (Math.abs(this.xMove) >= 15){
+      if (Math.abs(this.xMove) >= 10){
         this.slowDown();
       }
       this.x += this.xMove;
