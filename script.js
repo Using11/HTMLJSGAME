@@ -4,12 +4,12 @@ var gravitySpeed = 0;
 
 function startGame(){
   character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false,false);
-  object1 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
-  //object2 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
-  //object3 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
-  //object4 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
-  //object5 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
-  //object6 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  object1 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object2 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object3 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object4 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object5 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object6 = new component(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   gameCanvas.start();
   character.update();
   object1.update();
