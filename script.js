@@ -112,7 +112,7 @@ class component {
       
     }
     this.collideWithObjectSide = function(obj){
-      if(this.x == obj.x && this.y == obj.y){
+      if((this.x == obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height))){
         console.log("throw");
       }
     }
