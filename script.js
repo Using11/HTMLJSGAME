@@ -14,29 +14,18 @@ function updateGame(){
   if (gameCanvas.key && (gameCanvas.key == "ArrowLeft" || gameCanvas.key == "ArrowRight" || gameCanvas.key == "ArrowUp")){
     if (gameCanvas.key && gameCanvas.key == "ArrowLeft"){
       character.xMove -= 1;
-      if (gameCanvas.key && gameCanvas.key == "ArrowUp"){
-        character.jump();
-      }
     }
     if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
       character.xMove += 1;
-      if (gameCanvas.key && gameCanvas.key == "ArrowUp"){
-        character.jump();
-      }
     }
     if (gameCanvas.key && gameCanvas.key == "ArrowUp"){
       character.jump();
-      if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
-        character.xMove += 1;
-      }
-      if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
-        character.xMove += 1;
-      }
     }
   }
-  else{
+  if (!gameCanvas.key || (gameCanvas.key != "ArrowLeft" && gameCanvas.key != "ArrowRight"){
     character.slowDown();
   }
+  
   character.move();
   character.update();
   character.gravity(gravityStrength);
@@ -100,7 +89,6 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       gravitySpeed++;
-      gravitySpeed = Math.round(gravitySpeed * 0.96);
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height - this.height;
         this.touchingSurface = true;
