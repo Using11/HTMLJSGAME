@@ -22,10 +22,6 @@ function updateGame(){
       character.jump();
     }
   }
-  if (!gameCanvas.key || (gameCanvas.key != "ArrowLeft" && gameCanvas.key != "ArrowRight")){
-    character.slowDown();
-  }
-  
   character.move();
   character.update();
   character.gravity(gravityStrength);
