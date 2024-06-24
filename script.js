@@ -3,13 +3,13 @@ var gravityStrength = 0.09;
 var gravitySpeed = 0;
 
 function startGame(){
-  character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
-  object1 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
-  //object2 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
-  //object3 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
-  //object4 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
-  //object5 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
-  //object6 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false);
+  character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false,false);
+  object1 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object2 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object3 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object4 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object5 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
+  //object6 = new componenet(150,150,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   gameCanvas.start();
   character.update();
   object1.update();
@@ -92,7 +92,7 @@ var keys = {
 };
 
 class component {
-  constructor(x,y,width,height,fillColor,strokeColor,strokeWidth,radiusBool){
+  constructor(x,y,width,height,fillColor,strokeColor,strokeWidth,radiusBool,isCoin){
     this.x = x;
     this.y = y;
     this.width = width;
@@ -105,6 +105,7 @@ class component {
     this.strokeWidth = strokeWidth;
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
+    this.isCoin = isCoin;
     this.xMove = 0;
     this.touchingSurface = false;
     this.touchingGroundOrSurface = function(){
