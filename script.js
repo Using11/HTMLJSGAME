@@ -26,6 +26,12 @@ function updateGame(){
     }
     if (gameCanvas.key && gameCanvas.key == "ArrowUp"){
       character.jump();
+      if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
+        character.xMove += 1;
+      }
+      if (gameCanvas.key && gameCanvas.key == "ArrowRight"){
+        character.xMove += 1;
+      }
     }
   }
   else{
