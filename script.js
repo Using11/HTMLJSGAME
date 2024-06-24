@@ -22,7 +22,7 @@ function updateGame(){
       character.jump();
     }
   }
-  if (!gameCanvas.key || (gameCanvas.key != "ArrowLeft" && gameCanvas.key != "ArrowRight"){
+  if (!gameCanvas.key || (gameCanvas.key != "ArrowLeft" && gameCanvas.key != "ArrowRight")){
     character.slowDown();
   }
   
