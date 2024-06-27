@@ -125,9 +125,15 @@ class component {
         this.xMove = 0;
         this.touchingLeft = true;
       }
+      else{
+        this.touchingLeft = false;
+      }
       if(this.x - this.width - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)){
         this.xMove = 0;
         this.touchingRight = true;
+      }
+      else{
+        this.touchingRight = false;
       }
     }
     this.move = function(){
