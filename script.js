@@ -24,6 +24,7 @@ function startGame(){
 function updateGame(){
   character.touchingLeft = false;
   character.touchingRight = false;
+  character.touchingSurfaceDown = false;
   gameCanvas.clear();
   if (keys.left || keys.right || keys.up){
     if (keys.left){
@@ -114,11 +115,14 @@ class component {
     this.radiusBool = radiusBool;
     this.isCoin = isCoin;
     this.xMove = 0;
-    this.touchingSurface = false;
+    this.touchingSurfaceDown = false;
     this.touchingLeft = false;
     this.touchingRight = false;
-    this.touchingGroundOrSurface = function(){
-      
+    this.touchingGroundOrSurfaceDown = function(obj){
+      if(this.y + this.height + 2 >= obj.y){
+        this.touchingSurfaceDown = true;
+        this.y = obj.y - this.height - 2;
+      }
     }
     this.sideCollisionCheck = function(obj){
       if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - 2 <= obj.x + obj.width){
@@ -131,6 +135,7 @@ class component {
       }
       if(this.x - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 2 >= obj.x){
         this.xMove = 0;
+        this.x = obj.x + obj.width + 2;
         this.touchingRight = true;
       }
       else{
@@ -162,11 +167,11 @@ class component {
       gravitySpeed++;
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.y = gameCanvas.canvas.height - this.height;
-        this.touchingSurface = true;
+        this.touchingSurfaceDown = true;
         gravitySpeed = 0; 
       }
       else {
-        this.touchingSurface = false;
+        this.touchingSurfaceDown = false;
       }
     }
     this.update = function(){
