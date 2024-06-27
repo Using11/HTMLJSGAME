@@ -123,6 +123,7 @@ class component {
     this.sideCollisionCheck = function(obj){
       if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - this.width - 2 <= obj.x + obj.width){
         this.xMove = 0;
+        this.x = obj.x - this.width - 2;
         this.touchingLeft = true;
       }
       else{
