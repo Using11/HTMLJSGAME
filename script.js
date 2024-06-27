@@ -112,7 +112,7 @@ class component {
       
     }
     this.sideCollisionCheck = function(obj){
-      if((this.x == obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height))){
+      if((this.x + this.width >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height))){
         console.log("throw");
       }
     }
