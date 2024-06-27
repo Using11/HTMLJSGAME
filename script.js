@@ -157,7 +157,7 @@ class component {
       }
     }
     this.jump = function(){
-      if (gravitySpeed >= 0 && this.touchingSurface){
+      if (gravitySpeed >= 0 && this.touchingSurfaceDown){
         gravitySpeed = -20;
       }
     }
