@@ -22,6 +22,8 @@ function startGame(){
 }
 
 function updateGame(){
+  character.touchingLeft = false;
+  character.touchingRight = false;
   gameCanvas.clear();
   if (keys.left || keys.right || keys.up){
     if (keys.left){
@@ -37,8 +39,6 @@ function updateGame(){
   if (!keys.left && !keys.right){
     character.slowDown();
   }
-  character.move();
-  character.update();
   object1.update();
   //object2.update();
   //object3.update();
@@ -47,6 +47,13 @@ function updateGame(){
   //object6.update();
   character.sideCollisionCheck(object1);
   character.gravity(gravityStrength);
+  if(keys.left && !character.touchingLeft){
+    character.move();
+  }
+  if(keys.right && !character.touchingRight){
+    character.move();
+  }
+  character.update();
   paint();
 }
 
@@ -108,12 +115,19 @@ class component {
     this.isCoin = isCoin;
     this.xMove = 0;
     this.touchingSurface = false;
+    this.touchingLeft = false;
+    this.touchingRight = false;
     this.touchingGroundOrSurface = function(){
       
     }
     this.sideCollisionCheck = function(obj){
-      if((this.x + this.width >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height))){
-        console.log("throw");
+      if(this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)){
+        this.xMove = 0;
+        this.touchingLeft = true;
+      }
+      if(this.x - this.width - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)){
+        this.xMove = 0;
+        this.touchingRight = true;
       }
     }
     this.move = function(){
