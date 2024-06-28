@@ -27,19 +27,14 @@ function updateGame(){
   character.touchingDown = false;
   character.touchingGround = false;
   gameCanvas.clear();
-  if(keys.up){
-    console.log("UP)")
+  if (keys.left){
+    character.xMove -= 1;
   }
-  if (keys.left || keys.right || keys.up){
-    if (keys.left){
-      character.xMove -= 1;
-    }
-    if (keys.right){
-      character.xMove += 1;
-    }
-    if (keys.up){
-      character.jump();
-    }
+  if (keys.right){
+    character.xMove += 1;
+  }
+  if (keys.up){
+    character.jump();
   }
   if (!keys.left && !keys.right){
     character.slowDown();
@@ -178,7 +173,6 @@ class component {
     }
     this.jump = function(){
       if (gravitySpeed >= 0 && (this.touchingDown || this.touchingGround)){
-        console.log("JUMP");
         gravitySpeed = -100;
       }
     }
