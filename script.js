@@ -128,7 +128,7 @@ class component {
         this.y = obj.y - this.height;
       }
     }
-    this.touchingGround = function(){
+    this.touchingGroundFunc = function(){
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.touchingGround = true;
         this.y = gameCanvas.canvas.height - this.height;
