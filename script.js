@@ -150,10 +150,16 @@ class component {
         this.touchingRight = false;
       }
     }
+    this.inhibit = function(){
+      if(this.touchingLeft && keys.left || this.touchingRight && keys.right){
+        this.xMove = 0;
+      }
+    }
     this.move = function(){
       if (Math.abs(this.xMove) >= 10){
         this.slowDown();
       }
+      this.inhibit();
       this.x += this.xMove;
     }
     this.slowDown = function(){
