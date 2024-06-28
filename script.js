@@ -47,7 +47,7 @@ function updateGame(){
   //object4.update();
   //object5.update();
   //object6.update();
-  character.touchingGround();
+  character.touchingGroundFunc();
   character.touchingSurfaceDownFunc(object1);
   character.sideCollisionCheck(object1);
   character.gravity(gravityStrength);
