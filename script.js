@@ -46,7 +46,8 @@ function updateGame(){
   //object4.update();
   //object5.update();
   //object6.update();
-  character.touchingGroundOrSurfaceDown(object1);
+  character.touchingGround();
+  character.touchingSurfaceDown(object1);
   character.sideCollisionCheck(object1);
   character.gravity(gravityStrength);
   if(keys.left && !character.touchingLeft){
@@ -119,11 +120,13 @@ class component {
     this.touchingDown = false;
     this.touchingLeft = false;
     this.touchingRight = false;
-    this.touchingGroundOrSurfaceDown = function(obj){
-      if(this.y + this.height + 2 >= obj.y){
+    this.touchingSurfaceDown = function(obj){
+      if(this.y + this.height + 2 >= obj.y && (true)){
         this.touchingDown = true;
         this.y = obj.y - this.height;
       }
+    }
+    this.touchingGround = function(){
       if(this.y + this.height >= gameCanvas.canvas.height){
         this.touchingDown = true;
         this.y = gameCanvas.canvas.height - this.height;
