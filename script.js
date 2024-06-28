@@ -129,9 +129,10 @@ class component {
       }
     }
     this.touchingGroundFunc = function(){
-      if(this.y + this.height >= gameCanvas.canvas.height){
+      const gameHeight = gameCanvas.canvas.height;
+      if(this.y + this.height >= gameHeight){
         this.touchingGround = true;
-        this.y = gameCanvas.canvas.height - this.height;
+        this.y = gameHeight - this.height;
       }
     }
     this.sideCollisionCheck = function(obj){
