@@ -47,7 +47,7 @@ function updateGame(){
   //object5.update();
   //object6.update();
   character.touchingGround();
-  character.touchingSurfaceDown(object1);
+  character.touchingSurfaceDownFunc(object1);
   character.sideCollisionCheck(object1);
   character.gravity(gravityStrength);
   if(keys.left && !character.touchingLeft){
@@ -120,7 +120,7 @@ class component {
     this.touchingDown = false;
     this.touchingLeft = false;
     this.touchingRight = false;
-    this.touchingSurfaceDown = function(obj){
+    this.touchingSurfaceDownFunc = function(obj){
       if(this.y + this.height + 2 >= obj.y && (true)){
         this.touchingDown = true;
         this.y = obj.y - this.height;
