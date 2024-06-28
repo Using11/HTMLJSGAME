@@ -27,6 +27,9 @@ function updateGame(){
   character.touchingDown = false;
   character.touchingGround = false;
   gameCanvas.clear();
+  if(keys.up){
+    console.log("UP)")
+  }
   if (keys.left || keys.right || keys.up){
     if (keys.left){
       character.xMove -= 1;
@@ -77,7 +80,6 @@ var gameCanvas = {
       }
       if (gameCanvas.key === "ArrowUp"){
         keys.up = true;
-        console.log("KeyUp");
       }
     });
     window.addEventListener("keyup", function(event){
