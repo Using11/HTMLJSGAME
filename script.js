@@ -50,7 +50,6 @@ function updateGame(){
   character.touchingGroundFunc();
   character.touchingSurfaceDownFunc(object1);
   character.sideCollisionCheck(object1);
-  character.gravity(gravityStrength);
   if(keys.left && !character.touchingLeft){
     character.move();
   }
@@ -58,6 +57,7 @@ function updateGame(){
     character.move();
   }
   character.update();
+  character.gravity(gravityStrength);
   paint();
 }
 
