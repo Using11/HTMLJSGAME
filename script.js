@@ -24,7 +24,7 @@ function startGame(){
 function updateGame(){
   character.touchingLeft = false;
   character.touchingRight = false;
-  character.touchingSurfaceDown = false;
+  character.touchingDown = false;
   gameCanvas.clear();
   if (keys.left || keys.right || keys.up){
     if (keys.left){
