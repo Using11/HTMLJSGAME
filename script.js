@@ -25,6 +25,7 @@ function updateGame(){
   character.touchingLeft = false;
   character.touchingRight = false;
   character.touchingDown = false;
+  character.touchingGround = false;
   gameCanvas.clear();
   if (keys.left || keys.right || keys.up){
     if (keys.left){
@@ -117,6 +118,7 @@ class component {
     this.radiusBool = radiusBool;
     this.isCoin = isCoin;
     this.xMove = 0;
+    this.touchingGround = false;
     this.touchingDown = false;
     this.touchingLeft = false;
     this.touchingRight = false;
@@ -128,7 +130,7 @@ class component {
     }
     this.touchingGround = function(){
       if(this.y + this.height >= gameCanvas.canvas.height){
-        this.touchingDown = true;
+        this.touchingGround = true;
         this.y = gameCanvas.canvas.height - this.height;
       }
     }
@@ -179,7 +181,7 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       gravitySpeed++;
-      if(this.touchingDown){
+      if(this.touchingDown || this.touchingGround){
         gravitySpeed = 0; 
       }
     }
