@@ -175,7 +175,7 @@ class component {
     }
     this.jump = function(){
       if (gravitySpeed >= 0 && this.touchingDown){
-        gravitySpeed = -20;
+        gravitySpeed = -100;
       }
     }
     this.gravity = function(){
