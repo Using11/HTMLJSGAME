@@ -115,13 +115,17 @@ class component {
     this.radiusBool = radiusBool;
     this.isCoin = isCoin;
     this.xMove = 0;
-    this.touchingSurfaceDown = false;
+    this.touchingDown = false;
     this.touchingLeft = false;
     this.touchingRight = false;
     this.touchingGroundOrSurfaceDown = function(obj){
       if(this.y + this.height + 2 >= obj.y){
-        this.touchingSurfaceDown = true;
+        this.touchingDown = true;
         this.y = obj.y - this.height - 2;
+      }
+      if(this.y + this.height >= gameCanvas.canvas.height){
+        this.y = gameCanvas.canvas.height - this.height;
+        this.touchingDown = true;
       }
     }
     this.sideCollisionCheck = function(obj){
@@ -157,7 +161,7 @@ class component {
       }
     }
     this.jump = function(){
-      if (gravitySpeed >= 0 && this.touchingSurfaceDown){
+      if (gravitySpeed >= 0 && this.touchingDown){
         gravitySpeed = -20;
       }
     }
@@ -165,13 +169,8 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       gravitySpeed++;
-      if(this.y + this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height - this.height;
-        this.touchingSurfaceDown = true;
+      if(this.touchingDown){
         gravitySpeed = 0; 
-      }
-      else {
-        this.touchingSurfaceDown = false;
       }
     }
     this.update = function(){
