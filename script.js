@@ -77,6 +77,7 @@ var gameCanvas = {
       }
       if (gameCanvas.key === "ArrowUp"){
         keys.up = true;
+        console.log("KeyUp");
       }
     });
     window.addEventListener("keyup", function(event){
