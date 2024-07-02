@@ -333,7 +333,12 @@ class component {
     this.xMove = 0;
     this.touchingSurface = false;
     this.touchingGround = false;
-    this.touchingGroundOrSurface = function(){
+    this.touchingGroundFunc = function(){
+      if(this.y + this.height >= gameCanvas.canvas.height){
+        this.touchingGround = true;
+      }
+    }
+    this.touchingSurfaceFunc = function(){
       
     }
     this.move = function(){
@@ -351,7 +356,7 @@ class component {
       }
     }
     this.jump = function(){
-      if (gravitySpeed >= 0 && this.touchingSurface){
+      if (gravitySpeed >= 0 && (this.touchingSurface || this.touchingGround)){
         gravitySpeed = -20;
       }
     }
