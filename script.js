@@ -244,9 +244,12 @@ var gravityStrength = 0.09;
 var gravitySpeed = 0;
 
 function startGame(){
-  character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false);
+  character = new component(100,100,20,20,"rgb(124 120 102 / 100%)","black",2,false,false);
+  object1 = new component(150,350,100,150,"rgb(10 125 249 / 100%)","black",2,false,false);
   gameCanvas.start();
   character.update();
+  object1.update();
+
   updateGame();
 }
 
@@ -314,7 +317,7 @@ var keys = {
 };
 
 class component {
-  constructor(x,y,width,height,fillColor,strokeColor,strokeWidth,radiusBool){
+  constructor(x,y,width,height,fillColor,strokeColor,strokeWidth,radiusBool,isCoin){
     this.x = x;
     this.y = y;
     this.width = width;
@@ -329,6 +332,7 @@ class component {
     this.radiusBool = radiusBool;
     this.xMove = 0;
     this.touchingSurface = false;
+    this.touchingGround = false;
     this.touchingGroundOrSurface = function(){
       
     }
