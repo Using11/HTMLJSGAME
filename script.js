@@ -335,6 +335,7 @@ class component {
     this.touchingGround = false;
     this.touchingGroundFunc = function(){
       if(this.y + this.height >= gameCanvas.canvas.height){
+        this.y = gameCanvas.canvas.height - this.height;
         this.touchingGround = true;
       }
     }
@@ -364,13 +365,11 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       gravitySpeed++;
-      if(this.y + this.height >= gameCanvas.canvas.height){
-        this.y = gameCanvas.canvas.height - this.height;
-        this.touchingSurface = true;
+      if(this.touchingGround){
         gravitySpeed = 0; 
       }
       else {
-        this.touchingSurface = false;
+        this.touchingGround = false;
       }
     }
     this.update = function(){
