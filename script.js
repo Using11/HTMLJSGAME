@@ -169,6 +169,7 @@ class component {
       this.touchingGroundFunc();
       this.touchingSurfaceDownFunc(object1);
       this.sideCollisionCheck(object1);
+      this.inhibit();
       if(this.touchingGround || this.touchingSurfaceDown){
         gravitySpeed = 0; 
       }
