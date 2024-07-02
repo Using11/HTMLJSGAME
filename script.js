@@ -338,6 +338,9 @@ class component {
         this.y = gameCanvas.canvas.height - this.height;
         this.touchingGround = true;
       }
+      else {
+        this.touchingGround = false;
+      }
     }
     this.touchingSurfaceFunc = function(){
       
@@ -367,9 +370,6 @@ class component {
       gravitySpeed++;
       if(this.touchingGround){
         gravitySpeed = 0; 
-      }
-      else {
-        this.touchingGround = false;
       }
     }
     this.update = function(){
