@@ -33,11 +33,12 @@ function updateGame(){
   if (keys.right){
     character.xMove += 1;
   }
-  if (keys.up){
-    character.jump();
-  }
   if (!keys.left && !keys.right){
     character.slowDown();
+  }
+  if (keys.up){
+    console.log("jump");
+    character.jump();
   }
   object1.update();
   //object2.update();
@@ -173,7 +174,7 @@ class component {
     }
     this.jump = function(){
       if (gravitySpeed == 0 && (this.touchingDown || this.touchingGround)){
-        gravitySpeed = -100;
+        gravitySpeed = -25;
       }
     }
     this.gravity = function(){
