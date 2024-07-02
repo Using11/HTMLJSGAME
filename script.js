@@ -365,13 +365,12 @@ class component {
       }
     }
     this.gravity = function(){
-      this.touchingGroundFunc();
-      this.touchingSurfaceFunc();
+      gravitySpeed++;
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
-      gravitySpeed++;
+      this.touchingGroundFunc();
+      this.touchingSurfaceFunc();
       if(this.touchingGround){
-        console.log("touchingGround");
         gravitySpeed = 0; 
       }
     }
