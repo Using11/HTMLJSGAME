@@ -331,6 +331,7 @@ class component {
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.xMove = 0;
+    this.inhibitBool = false;
     this.touchingLeft = false;
     this.touchingRight = false;
     this.touchingSurfaceDown = false;
@@ -371,6 +372,15 @@ class component {
         this.touchingRight = false;
       }
     }
+    this.inhibit = function(){
+      if(this.touchingLeft && keys.left || this.touchingRight && keys.right){
+        this.xMove = 0;
+        this.inhibitBool = true;
+      }
+      else{
+        this.inhibitBool = false;
+      }
+    }
     this.move = function(){
       if (Math.abs(this.xMove) >= 10){
         this.slowDown();
@@ -396,6 +406,7 @@ class component {
       this.y = Math.round(this.y);
       this.touchingGroundFunc();
       this.touchingSurfaceDownFunc(object1);
+      this.sideCollisionCheck(object1);
       if(this.touchingGround || this.touchingSurfaceDown){
         gravitySpeed = 0; 
       }
