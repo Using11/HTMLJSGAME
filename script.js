@@ -37,7 +37,6 @@ function updateGame(){
     character.slowDown();
   }
   if (keys.up){
-    console.log("jump");
     character.jump();
   }
   object1.update();
