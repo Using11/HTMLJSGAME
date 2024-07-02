@@ -111,6 +111,9 @@ class component {
         if(!this.inhibitBool){
           this.y = obj.y - this.height;
         }
+        else{
+          this.inhibit();
+        }
       }
       else{
         this.touchingSurfaceDown = false;
@@ -166,10 +169,10 @@ class component {
       gravitySpeed++;
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
-      this.touchingGroundFunc();
-      this.touchingSurfaceDownFunc(object1);
       this.sideCollisionCheck(object1);
       this.inhibit();
+      this.touchingGroundFunc();
+      this.touchingSurfaceDownFunc(object1);
       if(this.touchingGround || this.touchingSurfaceDown){
         gravitySpeed = 0; 
       }
