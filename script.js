@@ -331,6 +331,8 @@ class component {
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.xMove = 0;
+    this.touchingLeft = false;
+    this.touchingRight = false;
     this.touchingSurfaceDown = false;
     this.touchingGround = false;
     this.touchingGroundFunc = function(){
@@ -351,8 +353,26 @@ class component {
         this.touchingSurfaceDown = false;
       }
     }
+    this.sideCollisionCheck = function(obj){
+      if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - 2 <= obj.x + obj.width){
+        this.xMove = 0;
+        this.x = obj.x - this.width - 2;
+        this.touchingLeft = true;
+      }
+      else{
+        this.touchingLeft = false;
+      }
+      if(this.x - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 2 >= obj.x){
+        this.xMove = 0;
+        this.x = obj.x + obj.width + 2;
+        this.touchingRight = true;
+      }
+      else{
+        this.touchingRight = false;
+      }
+    }
     this.move = function(){
-      if (Math.abs(this.xMove) >= 25){
+      if (Math.abs(this.xMove) >= 10){
         this.slowDown();
       }
       this.x += this.xMove;
