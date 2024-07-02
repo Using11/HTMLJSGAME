@@ -108,7 +108,7 @@ class component {
     this.touchingSurfaceDownFunc = function(obj){
       if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 2 >= obj.x && this.x - 2 <= obj.x + obj.width)){
         this.touchingSurfaceDown = true;
-        if(this.inhibitBool){
+        if(!this.inhibitBool){
           this.y = obj.y - this.height;
         }
       }
