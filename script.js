@@ -249,7 +249,6 @@ function startGame(){
   gameCanvas.start();
   character.update();
   object1.update();
-
   updateGame();
 }
 
@@ -271,6 +270,7 @@ function updateGame(){
   }
   character.move();
   character.update();
+  object1.update();
   character.gravity(gravityStrength);
   paint();
 }
@@ -365,10 +365,13 @@ class component {
       }
     }
     this.gravity = function(){
+      this.touchingGroundFunc();
+      this.touchingSurfaceFunc();
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       gravitySpeed++;
       if(this.touchingGround){
+        console.log("touchingGround");
         gravitySpeed = 0; 
       }
     }
