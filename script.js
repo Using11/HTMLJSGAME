@@ -177,12 +177,12 @@ class component {
       }
     }
     this.gravity = function(){
-      this.y += gravityStrength + gravitySpeed - 1
-      this.y = Math.round(this.y);
       gravitySpeed++;
       if(this.touchingDown || this.touchingGround){
         gravitySpeed = 0; 
       }
+      this.y += gravityStrength + gravitySpeed - 1
+      this.y = Math.round(this.y);
     }
     this.update = function(){
       if (radiusBool){
