@@ -346,6 +346,7 @@ class component {
       if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 2 >= obj.x && this.x - 2 <= obj.x + obj.width)){
         this.touchingSurfaceDown = true;
         this.y = obj.y - this.height;
+      }
     }
     this.move = function(){
       if (Math.abs(this.xMove) >= 25){
