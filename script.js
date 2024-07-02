@@ -120,7 +120,7 @@ class component {
       }
     }
     this.sideCollisionCheck = function(obj){
-      if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - 2 <= obj.x + obj.width){
+      if((this.x + this.width + 3 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - 1 <= obj.x + obj.width){
         this.xMove = 0;
         this.x = obj.x - this.width - 2;
         this.touchingLeft = true;
@@ -128,7 +128,7 @@ class component {
       else{
         this.touchingLeft = false;
       }
-      if(this.x - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 2 >= obj.x){
+      if(this.x - 1 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 3 >= obj.x){
         this.xMove = 0;
         this.x = obj.x + obj.width + 2;
         this.touchingRight = true;
