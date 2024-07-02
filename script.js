@@ -136,7 +136,7 @@ class component {
     }
     this.inhibit = function(){
       if(this.touchingLeft && keys.left || this.touchingRight && keys.right){
-        this.xMove = 0;
+        this.xMove = this.xMove / Math.abs(this.xMove);
         this.inhibitBool = true;
       }
       else{
