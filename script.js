@@ -331,7 +331,7 @@ class component {
     context.lineWidth = this.strokeWidth;
     this.radiusBool = radiusBool;
     this.xMove = 0;
-    this.touchingSurface = false;
+    this.touchingSurfaceDown = false;
     this.touchingGround = false;
     this.touchingGroundFunc = function(){
       if(this.y + this.height >= gameCanvas.canvas.height){
@@ -342,8 +342,10 @@ class component {
         this.touchingGround = false;
       }
     }
-    this.touchingSurfaceFunc = function(){
-      
+    this.touchingSurfaceDownFunc = function(obj){
+      if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 2 >= obj.x && this.x - 2 <= obj.x + obj.width)){
+        this.touchingSurfaceDown = true;
+        this.y = obj.y - this.height;
     }
     this.move = function(){
       if (Math.abs(this.xMove) >= 25){
@@ -360,7 +362,7 @@ class component {
       }
     }
     this.jump = function(){
-      if (gravitySpeed >= 0 && (this.touchingSurface || this.touchingGround)){
+      if (gravitySpeed >= 0 && (this.touchingSurfaceDown || this.touchingGround)){
         gravitySpeed = -20;
       }
     }
@@ -369,8 +371,8 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       this.touchingGroundFunc();
-      this.touchingSurfaceFunc();
-      if(this.touchingGround){
+      this.touchingSurfaceDownFunc(object1);
+      if(this.touchingGround || this.touchingSurfaceDown){
         gravitySpeed = 0; 
       }
     }
