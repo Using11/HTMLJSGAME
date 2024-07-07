@@ -91,7 +91,6 @@ class component {
     this.radiusBool = radiusBool;
     this.isCoin = isCoin;
     this.xMove = 0;
-    this.inhibitBool = false;
     this.touchingLeft = false;
     this.touchingRight = false;
     this.touchingSurfaceDown = false;
@@ -108,7 +107,7 @@ class component {
     this.touchingSurfaceDownFunc = function(obj){
       if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 2 >= obj.x && this.x - 2 <= obj.x + obj.width)){
         this.touchingSurfaceDown = true;
-        if(this.y + this.height + 2 > obj.y && (this.touchingLeft || this.touchingRight)){
+        if(this.y + this.height + 2 > obj.y && (this.touchingLeft && keys.left || this.touchingRight && keys.right)){
           this.inhibit();
         }
         else if(this.y + this.height + 2 > obj.y){
@@ -140,10 +139,6 @@ class component {
     this.inhibit = function(){
       if(this.touchingLeft && keys.left || this.touchingRight && keys.right){
         this.xMove = 0
-        this.inhibitBool = true;
-      }
-      else{
-        this.inhibitBool = false;
       }
     }
     this.move = function(){
