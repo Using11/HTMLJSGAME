@@ -111,7 +111,7 @@ class component {
         if(this.y + this.height + 2 > obj.y && (this.touchingLeft || this.touchingRight)){
           this.inhibit();
         }
-        else{
+        else if(this.y + this.height + 2 > obj.y){
           this.y = obj.y - this.height - 2;
         }
       }
