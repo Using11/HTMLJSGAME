@@ -154,6 +154,9 @@ class component {
       if(!this.stopMove){
         this.x += this.xMove;
       }
+      else{
+        this.xMove = 0;
+      }
     }
     this.slowDown = function(){
       if(this.xMove > 0){
