@@ -123,7 +123,7 @@ class component {
       }
     }
     this.sideCollisionCheck = function(obj){
-      if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x - 2 <= obj.x + obj.width){
+      if((this.x + this.width + 2 >= obj.x && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height)) && this.x <= obj.x + obj.width + 2){
         this.xMove = 0;
         this.x = obj.x - this.width - 2;
         this.touchingLeft = true;
@@ -133,7 +133,7 @@ class component {
         this.touchingLeft = false;
         this.stopMove = false;
       }
-      if(this.x - 2 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 2 >= obj.x){
+      if(this.x <= obj.x + obj.width + 2 && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width + 2 >= obj.x){
         this.xMove = 0;
         this.x = obj.x + obj.width + 2;
         this.touchingRight = true;
@@ -144,13 +144,13 @@ class component {
         this.stopMove = false;
       }
       if(this.touchingLeft || this.touchingRight){
-        this.xMove = 0;
         if(this.touchingLeft){
           this.x = obj.x - this.width - 2;
         }
         if(this.touchingRight){
           this.x = obj.x + obj.width + 2;
         }
+        this.xMove = 0;
       }
     }
     this.inhibit = function(){
