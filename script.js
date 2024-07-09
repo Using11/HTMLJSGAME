@@ -27,10 +27,10 @@ function updateGame(){
   if (!keys.left && !keys.right){
     character.slowDown();
   }
+  character.gravity(gravityStrength);
   character.move();
   character.update();
   object1.update();
-  character.gravity(gravityStrength);
   paint();
 }
 
@@ -176,7 +176,6 @@ class component {
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
       this.sideCollisionCheck(object1);
-      this.inhibit();
       this.touchingGroundFunc();
       this.touchingSurfaceDownFunc(object1);
       if(this.touchingGround || this.touchingSurfaceDown){
