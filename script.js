@@ -13,7 +13,7 @@ function startGame(){
 
 function updateGame(){
   gameCanvas.clear();
-  if (keys.left || keys.right || keys.up){
+  if ((keys.left || keys.right || keys.up) && !character.stopMove){
     if (keys.left){
       character.xMove -= 1;
     }
