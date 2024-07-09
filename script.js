@@ -140,6 +140,15 @@ class component {
         this.touchingRight = false;
         this.stopMove = false;
       }
+      if(this.touchingLeft || this.touchingRight){
+        this.xMove = 0;
+        if(this.touchingLeft){
+          this.x = obj.x - this.width - 2;
+        }
+        else{
+          this.x = obj.x + obj.width + 2;
+        }
+      }
     }
     this.inhibit = function(){
       if(this.touchingLeft && keys.left || this.touchingRight && keys.right){
