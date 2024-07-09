@@ -152,6 +152,14 @@ class component {
         }
         this.xMove = 0;
       }
+      if(this.touchingLeft && keys.right){
+        this.x = obj.x - this.width - 2;
+        this.xMove = 0;
+      }
+      if(this.touchingRight && keys.left){
+        this.x = obj.x + obj.width + 2;
+        this.xMove = 0;
+      }
     }
     this.inhibit = function(){
       if((this.touchingLeft && keys.left) || (this.touchingRight && keys.right)){
