@@ -109,7 +109,7 @@ class component {
       }
     }
     this.touchingSurfaceDownFunc = function(obj){
-      if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 2 >= obj.x && this.x - 2 <= obj.x + obj.width)){
+      if(this.y + this.height + 2 >= obj.y && (this.x + this.width + 1 >= obj.x && this.x - 1 <= obj.x + obj.width)){
         this.touchingSurfaceDown = true;
         if(this.y + this.height + 2 > obj.y && (this.touchingLeft && keys.left || this.touchingRight && keys.right)){
           this.inhibit();
