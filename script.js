@@ -91,6 +91,7 @@ class component {
     this.radiusBool = radiusBool;
     this.isCoin = isCoin;
     this.xMove = 0;
+    this.stopMove = false;
     this.touchingLeft = false;
     this.touchingRight = false;
     this.touchingSurfaceDown = false;
@@ -123,17 +124,21 @@ class component {
         this.xMove = 0;
         this.x = obj.x - this.width - 2;
         this.touchingLeft = true;
+        this.stopMove = true;
       }
       else{
         this.touchingLeft = false;
+        this.stopMove = false;
       }
       if(this.x - 4 <= obj.x + obj.width && (this.y - this.height >= obj.y && this.y <= obj.y + obj.height) && this.x + this.width >= obj.x){
         this.xMove = 0;
         this.x = obj.x + obj.width + 2;
         this.touchingRight = true;
+        this.stopMove = true;
       }
       else{
         this.touchingRight = false;
+        this.stopMove = false;
       }
     }
     this.inhibit = function(){
@@ -146,7 +151,9 @@ class component {
         this.slowDown();
       }
       this.inhibit();
-      this.x += this.xMove;
+      if(!this.stopMove){
+        this.x += this.xMove;
+      }
     }
     this.slowDown = function(){
       if(this.xMove > 0){
