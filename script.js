@@ -145,7 +145,7 @@ class component {
         if(this.touchingLeft){
           this.x = obj.x - this.width - 2;
         }
-        else{
+        if(this.touchingRight){
           this.x = obj.x + obj.width + 2;
         }
       }
