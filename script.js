@@ -147,7 +147,7 @@ class component {
         if(this.touchingLeft){
           this.x = obj.x - this.width - 2;
         }
-        if(this.touchingRight){
+        else if(this.touchingRight){
           this.x = obj.x + obj.width + 2;
         }
         this.xMove = 0;
