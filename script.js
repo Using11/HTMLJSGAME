@@ -27,6 +27,9 @@ function updateGame(){
   if (!keys.left && !keys.right){
     character.slowDown();
   }
+  character.sideCollisionCheck(object1);
+  character.touchingGroundFunc();
+  character.touchingSurfaceDownFunc(object1);
   character.gravity(gravityStrength);
   character.move();
   character.update();
@@ -184,9 +187,6 @@ class component {
       gravitySpeed++;
       this.y += gravityStrength + gravitySpeed - 1
       this.y = Math.round(this.y);
-      this.sideCollisionCheck(object1);
-      this.touchingGroundFunc();
-      this.touchingSurfaceDownFunc(object1);
       if(this.touchingGround || this.touchingSurfaceDown){
         gravitySpeed = 0; 
       }
